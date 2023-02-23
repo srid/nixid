@@ -39,6 +39,7 @@ in
           name = "run";
           text = ''
             function runIt() {
+              set -euo pipefail
               cat "$(nix build .#expr-output ${if config.nixid.show-trace then "--show-trace" else ""} --no-link --print-out-paths)"
             }
             export -f runIt
