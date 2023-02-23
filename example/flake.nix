@@ -9,7 +9,7 @@
       systems = nixpkgs.lib.systems.flakeExposed;
       imports = [ inputs.nixid.flakeModule ];
       perSystem = { pkgs, lib, ... }: {
-        expr =
+        nixid.expr =
           let contents = lib.attrNames (builtins.readDir ./.);
           in contents;
       };
