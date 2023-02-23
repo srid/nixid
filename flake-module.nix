@@ -40,7 +40,8 @@ in
           text = ''
             function runIt() {
               set -euo pipefail
-              cat "$(nix build .#expr-output ${if config.nixid.show-trace then "--show-trace" else ""} --no-link --print-out-paths)"
+              OUT="$(nix build .#expr-output ${if config.nixid.show-trace then "--show-trace" else ""} --no-link --print-out-paths)"
+              cat "$OUT"
             }
             export -f runIt
             ${lib.getExe pkgs.watchexec} -e nix runIt
