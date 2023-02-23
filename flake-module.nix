@@ -26,7 +26,7 @@ in
               name = "run";
               text = ''
                 function runIt() {
-                  cat "$(nix build .#expr-output --no-link --print-out-paths)"
+                  cat "$(nix build .#expr-output --show-trace --no-link --print-out-paths)"
                 }
                 export -f runIt
                 ${lib.getExe pkgs.watchexec} -e nix runIt
