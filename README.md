@@ -2,7 +2,7 @@
 
 Like `ghcid -T` but for Nix
 
-`nixid` is a [flake-parts](https://flake.parts/) module for running Nix expressions in a loop, so you can iterate on them in a text editor rather than in `nix repl`.
+`nixid` is a [flake-parts](https://flake.parts/) module for running Nix expressions in a feedback loop, so you can iterate on them in a text editor rather than in `nix repl`.
 
 ## Usage
 
