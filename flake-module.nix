@@ -22,6 +22,13 @@ in
                   It must be convertable to a string using `builtins.toString`.
                 '';
               };
+              show-trace = lib.mkOption {
+                type = types.bool;
+                default = false;
+                description = ''
+                  Whether to show the stack trace.
+                '';
+              };
             };
           };
         };
@@ -32,7 +39,7 @@ in
           name = "run";
           text = ''
             function runIt() {
-              cat "$(nix build .#expr-output --no-link --print-out-paths)"
+              cat "$(nix build .#expr-output ${if config.nixis.show-trace then "--show-trace" else ""} --no-link --print-out-paths)"
             }
             export -f runIt
             ${lib.getExe pkgs.watchexec} -e nix runIt
